@@ -37,6 +37,11 @@
                 color: rgb(43, 255, 0);
                 text-decoration: none;
             }
+
+            .info{
+                position: fixed;
+                bottom: 10px;
+            }
         </style>
     </head>
     <body>
@@ -48,9 +53,23 @@
         </div>
         <div>
             <h1>Welcome</h1>
-            <p>I'm Stefan, a Game Developer at the IMC Krems.</p>
-            <p>>Unity Developer<br>
-            >Experienced in VR-Development</p>
+            <p>I'm Stefan, a Java and C# Developer.</p>
+            <p class="info" id="infoText"></p>
         </div>
+        <script>
+            let index = 0;
+            let message = ">Unity Development>VR Development>Serverhosting with Google Cloud>PHP>Java>C#>Python";
+            let target = document.getElementById("infoText");
+            showText();
+            function showText() {   
+                if (index < message.length) {
+                    if(message[index] == ">"){
+                        target.innerHTML += "<br>";
+                    }
+                    target.innerHTML += message[index++];
+                    setTimeout(function () { showText(); }, 100);
+                }
+            }
+        </script>
     </body>
 </html>
